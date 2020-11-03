@@ -16,77 +16,59 @@ export function activate(context: vscode.ExtensionContext) {
 
 			//Every item can have extra fields, to prompt the user for additional information
 			result.push({
-				'id': 'ext-web-app',
+				'id': 'ext-react-ts',
 				'icon': './assets/images/webapplication.svg',
-				'caption': 'TMS Web Application',
-				'description': 'A template to create a new TMS Web Application to run on the browser.',
-				'languages': ['Object Pascal'],
+				'caption': 'React Web Application ',
+				'description': 'A template to create a new React Web Application to run on the browser.',
+				'languages': ['TypeScript'],
 				'platforms': ['Web'],
 				'types': ['Application'],
-				'projectname': 'Project1.dproj',
+				'projectname': 'reactapplication',
 				'fields': [
 					{
 						"name": "gitInit",
 						"label": "Initialize git repository",
 						"type": "boolean",
 						"default": true
+					},
+					{
+						"name": "pkgManager",
+						"label": "Package manager",
+						"type": "dropdown",
+						"default": "npm",
+						"options": [
+							"npm",
+							"yarn"
+						]
 					}
 				]
 			});
 
 			result.push({
-				'id': 'ext-console-app',
-				'icon': './assets/images/consoleapp.svg',
-				'caption': 'TMS Web Console Application',
-				'description': 'A template to create a new TMS Web Application to run on the browser with a console interface.',
-				'languages': ['Object Pascal'],
+				'id': 'ext-react-js',
+				'icon': './assets/images/webapplication.svg',
+				'caption': 'React Web Application ',
+				'description': 'A template to create a new React Web Application to run on the browser.',
+				'languages': ['JavaScript'],
 				'platforms': ['Web'],
 				'types': ['Application'],
-				'projectname': 'Project1.dproj',
+				'projectname': 'reactapplication',
 				'fields': [
 					{
 						"name": "gitInit",
 						"label": "Initialize git repository",
 						"type": "boolean",
 						"default": true
-					}
-				]
-			});
-
-			result.push({
-				'id': 'ext-electron-app',
-				'icon': './assets/images/electronapp.svg',
-				'caption': 'TMS Web Electron Application',
-				'description': 'A template to create a new TMS Web Electron Application.',
-				'languages': ['Object Pascal'],
-				'platforms': ['Linux', 'Windows', 'macOS'],
-				'types': ['Application'],
-				'projectname': 'Project1.dproj',
-				'fields': [
+					},
 					{
-						"name": "gitInit",
-						"label": "Initialize git repository",
-						"type": "boolean",
-						"default": true
-					}
-				]
-			});
-
-			result.push({
-				'id': 'ext-pwa-app',
-				'icon': './assets/images/pwaapp.svg',
-				'caption': 'TMS Web PWA Application',
-				'description': 'A template to create a new TMS Progressive Web Application to run on the browser or be installed on the operating system.',
-				'languages': ['Object Pascal'],
-				'platforms': ['Web'],
-				'types': ['Application'],
-				'projectname': 'Project1.dproj',
-				'fields': [
-					{
-						"name": "gitInit",
-						"label": "Initialize git repository",
-						"type": "boolean",
-						"default": true
+						"name": "pkgManager",
+						"label": "Package manager",
+						"type": "dropdown",
+						"default": "npm",
+						"options": [
+							"npm",
+							"yarn"
+						]
 					}
 				]
 			});
@@ -108,12 +90,16 @@ export function activate(context: vscode.ExtensionContext) {
 					type: id,
 					projectname: params.projectname,
 					gitInit: params.gitInit,
+					pkgManager: params.pkgManager
 				};
 
 				process.chdir(outputpath);
 				let newappfolder = outputpath;
 				//@ts-ignore		
-				helpers.run(path.join(context.extensionPath, 'node_modules', 'generator-tms-web-core', 'generators', 'app'), { cwd: outputpath })
+				helpers.run(path.join(context.extensionPath, 'node_modules', 'generator-react-new', 'generators', 'app'), { cwd: outputpath })
+					.withOptions({
+						skipInstall: false
+					})
 					.withPrompts(prompts) // Mock the prompt answers
 					.toPromise().then(function () {
 						resolve(newappfolder);
