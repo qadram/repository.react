@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "git://github.com/qadram/repository.react.git"
 	},
-	"icon": "media/icon_tms.png",
+	"icon": "media/icon_react.png",
 	"version": "0.0.8",
 	"engines": {
 		"vscode": "^1.50.0"
