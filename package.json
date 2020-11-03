@@ -1,0 +1,44 @@
+{
+	"name": "repository-tms-web-core",
+	"displayName": "TMS Web Core Items for Repository",
+	"description": "Items to create TMS Web Core Projects, to use with the Repository extension",
+	"publisher": "branchcreation",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/qadram/repository.tms.web.core.git"
+	},
+	"icon": "media/icon_tms.png",
+	"version": "0.0.8",
+	"engines": {
+		"vscode": "^1.50.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"scripts": {
+		"vscode:prepublish": "npm install; npm run compile; npm prune --production",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"extensionPack": [
+		"branchcreation.repository"
+	],
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^10.17.43",
+		"@types/yeoman-test": "^2.0.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28"
+	},
+	"dependencies": {
+		"generator-tms-web-core": "0.0.2",
+		"yeoman-test": "^3.0.0"
+	}
+}
