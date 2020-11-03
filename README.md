@@ -1,22 +1,20 @@
-# TMS Web Core Items for Repository
+# React Items for Repository
 
-> Provide repository items to allow you create TMS Web Core projects, like web apps, electron apps and PWA apps.
+> Provide repository items to allow you create React projects.
 
 <p align="center">
-<img width="70%" src="https://raw.githubusercontent.com/qadram/repository.tms.web.core/main/items_animation.gif" />
+<img width="70%" src="https://raw.githubusercontent.com/qadram/repository.react/main/items.png" />
 </p>
 
 # About Repository
 
 Repository is a Visual Studio Code extension that provides a visual interface to allow you easily create projects directly from the editor, without having to use the command line.
 
-# About TMS Web Core Items for Repository
+# About React Items for Repository
 
-This extension provides the repository items you need to create TMS Web Core projects, it features:
+This extension provides the repository items you need to create React Web projects, it features:
 
-- Web Application
-- Console Application
-- Electron Application
-- PWA Application
+- React Application (TypeScript)
+- React Application (JavaScript)
 
 It is based on Yeoman, so it works exactly the same as you use the code generator.
